@@ -9,29 +9,29 @@ describe('RouteKillRequirement', () => {
   });
 
   it('should not be completed when kills are insufficient', () => {
-    const req = new RouteKillRequirement('test-route', 10);
+    const req = new RouteKillRequirement('test_route', 10);
 
     expect(req.isCompleted()).toBe(false);
   });
 
   it('should be completed when kills reach required value', () => {
-    loadStatistics({ 'test-route': 10 }, {});
-    const req = new RouteKillRequirement('test-route', 10);
+    loadStatistics({ 'test_route': 10 }, {});
+    const req = new RouteKillRequirement('test_route', 10);
 
     expect(req.isCompleted()).toBe(true);
   });
 
   it('should return a descriptive hint', () => {
-    const req = new RouteKillRequirement('test-route', 10);
+    const req = new RouteKillRequirement('test_route', 10);
 
-    expect(req.hint()).toBe('Defeat 10 zoids on test-route');
+    expect(req.hint()).toBe('Defeat 10 zoids on test_route');
   });
 
   it('should return current kill count as progress', () => {
-    incrementRouteKills('test-route');
-    incrementRouteKills('test-route');
-    incrementRouteKills('test-route');
-    const req = new RouteKillRequirement('test-route', 10);
+    incrementRouteKills('test_route');
+    incrementRouteKills('test_route');
+    incrementRouteKills('test_route');
+    const req = new RouteKillRequirement('test_route', 10);
 
     expect(req.progress()).toBe(3);
   });
@@ -54,10 +54,10 @@ describe('isLandmarkUnlocked', () => {
   });
 
   it('should return true when all requirements are completed', () => {
-    loadStatistics({ 'test-route': 10 }, {});
+    loadStatistics({ 'test_route': 10 }, {});
     const landmark: Landmark = {
       ...baseLandmark,
-      requirements: [new RouteKillRequirement('test-route', 10)],
+      requirements: [new RouteKillRequirement('test_route', 10)],
     };
 
     expect(isLandmarkUnlocked(landmark)).toBe(true);
@@ -66,7 +66,7 @@ describe('isLandmarkUnlocked', () => {
   it('should return false when any requirement is not completed', () => {
     const landmark: Landmark = {
       ...baseLandmark,
-      requirements: [new RouteKillRequirement('test-route', 10)],
+      requirements: [new RouteKillRequirement('test_route', 10)],
     };
 
     expect(isLandmarkUnlocked(landmark)).toBe(false);
@@ -83,10 +83,10 @@ describe('getLandmarkHints', () => {
       battleBackground: BattleBackground.Grass,
       id: 'test',
       name: 'Test',
-      requirements: [new RouteKillRequirement('test-route', 10)],
+      requirements: [new RouteKillRequirement('test_route', 10)],
       type: LandmarkType.City,
     };
 
-    expect(getLandmarkHints(landmark)).toEqual(['Defeat 10 zoids on test-route']);
+    expect(getLandmarkHints(landmark)).toEqual(['Defeat 10 zoids on test_route']);
   });
 });

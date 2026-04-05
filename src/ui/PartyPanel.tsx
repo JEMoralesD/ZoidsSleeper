@@ -1,19 +1,27 @@
 import { createSignal, For, Show, type Component } from 'solid-js';
+import { t } from '../i18n';
 import { experienceForLevel, MAX_LEVEL } from '../models/LevelType';
 import { getOwnedZoidLevel, getZoidById, getZoidImage, resolveZoid, type OwnedZoid } from '../models/Zoid';
 import { party } from '../store/partyStore';
 
-type StatOption = 'attack' | 'attack-100' | 'base-attack' | 'base-hp' | 'experience' | 'hp' | 'hp-100';
+const enum StatOption {
+  Attack = 'attack',
+  Attack100 = 'attack_100',
+  BaseAttack = 'base_attack',
+  BaseHp = 'base_hp',
+  Experience = 'experience',
+  Hp = 'hp',
+  Hp100 = 'hp_100',
+}
 
-const STAT_LABELS: Record<StatOption, string> = {
-  'attack': 'Current Attack',
-  'hp': 'Current HP',
-  'attack-100': 'Attack at Lv 100',
-  'hp-100': 'HP at Lv 100',
-  'base-attack': 'Base Attack',
-  'base-hp': 'Base HP',
-  'experience': 'Experience',
-};
+const STAT_OPTIONS: StatOption[] = [
+  StatOption.Attack, StatOption.Hp, StatOption.Attack100, StatOption.Hp100,
+  StatOption.BaseAttack, StatOption.BaseHp, StatOption.Experience,
+];
+
+function statLabel(key: StatOption): string {
+  return t(`ui:stat_${key}`);
+}
 
 function getExpProgress(zoid: OwnedZoid): number {
   const level = getOwnedZoidLevel(zoid);
@@ -27,13 +35,13 @@ function getExpProgress(zoid: OwnedZoid): number {
 function getStatValue(zoid: OwnedZoid, stat: StatOption): number {
   const level = getOwnedZoidLevel(zoid);
   switch (stat) {
-    case 'attack': return resolveZoid({ id: zoid.id, level }).attack;
-    case 'attack-100': return resolveZoid({ id: zoid.id, level: 100 }).attack;
-    case 'base-attack': return getZoidById(zoid.id).attack;
-    case 'base-hp': return getZoidById(zoid.id).maxHealth;
-    case 'experience': return zoid.experience;
-    case 'hp': return resolveZoid({ id: zoid.id, level }).maxHealth;
-    case 'hp-100': return resolveZoid({ id: zoid.id, level: 100 }).maxHealth;
+    case StatOption.Attack: return resolveZoid({ id: zoid.id, level }).attack;
+    case StatOption.Attack100: return resolveZoid({ id: zoid.id, level: 100 }).attack;
+    case StatOption.BaseAttack: return getZoidById(zoid.id).attack;
+    case StatOption.BaseHp: return getZoidById(zoid.id).maxHealth;
+    case StatOption.Experience: return zoid.experience;
+    case StatOption.Hp: return resolveZoid({ id: zoid.id, level }).maxHealth;
+    case StatOption.Hp100: return resolveZoid({ id: zoid.id, level: 100 }).maxHealth;
   }
 }
 
@@ -43,19 +51,19 @@ interface PartyPanelProps {
 }
 
 const PartyPanel: Component<PartyPanelProps> = (props) => {
-  const [selectedStat, setSelectedStat] = createSignal<StatOption>('attack');
+  const [selectedStat, setSelectedStat] = createSignal<StatOption>(StatOption.Attack);
 
   return (
     <div class="party-panel">
-      <h3 class="party-title" onClick={() => props.onToggle()}>Zoids Army</h3>
+      <h3 class="party-title" onClick={() => props.onToggle()}>{t('ui:zoids_army')}</h3>
       <Show when={props.expanded}>
         <select
           class="party-stat-select"
           value={selectedStat()}
           onChange={(e) => setSelectedStat(e.currentTarget.value as StatOption)}
         >
-          <For each={Object.entries(STAT_LABELS)}>
-            {([value, label]) => <option value={value}>{label}</option>}
+          <For each={STAT_OPTIONS}>
+            {(value) => <option value={value}>{statLabel(value)}</option>}
           </For>
         </select>
         <div class="party-list">
@@ -74,7 +82,7 @@ const PartyPanel: Component<PartyPanelProps> = (props) => {
                   </div>
                   <div class="party-row-info">
                     <span class="party-row-name">{getZoidById(zoid.id).name}</span>
-                    <span class="party-row-level">Lv.{level()}</span>
+                    <span class="party-row-level">{t('ui:lv')}{level()}</span>
                   </div>
                   <span class="party-row-stat">{getStatValue(zoid, selectedStat())}</span>
                 </div>

@@ -1,0 +1,4 @@
+{
+  "defeat_pilot": "Defeat {{name}}",
+  "defeat_zoids_on_route": "Defeat {{count}} zoids on {{route}}"
+}

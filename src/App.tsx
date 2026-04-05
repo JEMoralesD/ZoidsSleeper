@@ -7,6 +7,7 @@ import DialogBox from './story/DialogBox';
 import IntroSequence from './story/IntroSequence';
 import BattleScreen from './ui/BattleScreen';
 import IdleLandmarkScreen from './ui/IdleLandmarkScreen';
+import SettingsMenu from './ui/SettingsMenu';
 import PartyPanel from './ui/PartyPanel';
 import PilotBattleScreen from './ui/PilotBattleScreen';
 
@@ -28,7 +29,10 @@ const App: Component = () => {
 
   return (
     <div class="app">
-      <h1>Zoids Sleeper</h1>
+      <div class="app-header">
+        <h1>Zoids Sleeper</h1>
+        <SettingsMenu />
+      </div>
       <Show when={activeDialog()}>
         <div class="dialog-overlay">
           <DialogBox script={activeDialog()!} onComplete={() => setActiveDialog(null)} />

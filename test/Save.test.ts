@@ -20,7 +20,7 @@ describe('Save', () => {
     save.store();
     const loaded = save.load();
 
-    expect(loaded?.landmarkId).toBe('gleam-outskirts');
+    expect(loaded?.landmarkId).toBe('gleam_outskirts');
     expect(loaded?.party).toEqual(DEFAULT_PARTY);
   });
 
