@@ -3,12 +3,16 @@ import { calculateClickAttack } from '../models/Player';
 import { playerStats } from '../store/gameStore';
 import { currentLandmark, isOnRoute } from '../store/landmarkStore';
 import { partyAttack } from '../store/partyStore';
+import { getRouteKills } from '../store/statisticsStore';
 
 const PlayerInfo: Component = () => {
   return (
     <div class="player-info">
       <Show when={isOnRoute()}>
-        <span class="route-label">{currentLandmark().name}</span>
+        <div class="player-stats-row">
+          <span class="player-stat-label">{currentLandmark().name}</span>
+          <span class="player-stat-label">Zoids Defeated: <span class="player-stat-value">{getRouteKills(currentLandmark().id)}</span></span>
+        </div>
       </Show>
       <div class="player-stats-row">
         <div class="player-stat">

@@ -26,6 +26,7 @@ import {
 } from '../store/gameStore';
 import { setCurrentLandmark } from '../store/landmarkStore';
 import { setParty } from '../store/partyStore';
+import { loadStatistics } from '../store/statisticsStore';
 import { BaseBattle } from './BaseBattle';
 import { Battle } from './Battle';
 import { GameLoop } from './GameLoop';
@@ -144,6 +145,9 @@ export class Game {
       setShowClickHint(false);
       if (data.party?.length) {
         setParty(data.party);
+      }
+      if (data.routeKills) {
+        loadStatistics(data.routeKills);
       }
       return true;
     }
