@@ -1,21 +1,34 @@
+import { t } from '../../i18n';
+import type { NPCDialog } from '../../npc/dialogs';
 import type { Requirement } from '../../requirement';
-import type { DialogScript } from '../../story/Dialog';
+import { buildDialog, type DialogScript } from '../../story/Dialog';
 import type { CityAction } from './CityAction';
 
 export class ActionTalkToNPC implements CityAction {
   completeRequirements?: Requirement[];
   id: string;
-  label: string;
   onExecute: (() => void) | null = null;
   requirements?: Requirement[];
-  script: DialogScript;
+  speakerId: string;
 
-  constructor(scriptId: string, script: DialogScript, label: string, completeRequirements?: Requirement[], requirements?: Requirement[]) {
+  private dialogKey: string;
+  private speakerKey: string;
+
+  constructor(speakerId: string, dialog: NPCDialog, completeRequirements?: Requirement[], requirements?: Requirement[]) {
     this.completeRequirements = completeRequirements;
-    this.id = `talk-${scriptId}`;
-    this.label = label;
+    this.dialogKey = dialog.dialogKey;
+    this.id = `talk-${speakerId}`;
     this.requirements = requirements;
-    this.script = script;
+    this.speakerId = speakerId;
+    this.speakerKey = dialog.speakerKey;
+  }
+
+  get script(): DialogScript {
+    return buildDialog(this.speakerKey, this.dialogKey);
+  }
+
+  getLabel(): string {
+    return t('ui:talk_to_npc', { name: t(`pilots:${this.speakerId}`) });
   }
 
   execute(): void {

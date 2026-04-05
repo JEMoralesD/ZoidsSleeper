@@ -1,6 +1,6 @@
 import { For, type Component } from 'solid-js';
+import { t } from '../i18n';
 import { getZoidById, getZoidImage } from '../models/Zoid';
-import { STARTER_DESCRIPTIONS } from './introScript';
 
 interface StarterSelectProps {
   onSelect: (zoidId: string) => void;
@@ -10,7 +10,7 @@ const STARTER_IDS = ['garius', 'glidoler', 'elephantus'];
 
 const StarterSelect: Component<StarterSelectProps> = (props) => (
   <div class="starter-select">
-    <h2 class="starter-heading">Choose your Zoid</h2>
+    <h2 class="starter-heading">{t('ui:choose_your_zoid')}</h2>
     <div class="starter-grid">
       <For each={STARTER_IDS}>
         {(id) => {
@@ -22,9 +22,9 @@ const StarterSelect: Component<StarterSelectProps> = (props) => (
               <div class="starter-card-stats">
                 ATK {zoid.attack} / HP {zoid.maxHealth}
               </div>
-              <div class="starter-card-desc">{STARTER_DESCRIPTIONS[id]}</div>
+              <div class="starter-card-desc">{t(`zoids:desc_${id}`)}</div>
               <button type="button" onClick={() => props.onSelect(id)}>
-                Choose
+                {t('ui:choose')}
               </button>
             </div>
           );

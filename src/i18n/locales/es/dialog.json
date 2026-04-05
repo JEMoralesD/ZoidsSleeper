@@ -1,0 +1,38 @@
+{
+  "boy": [
+    "¡Por favor, tienes que ayudarme! ¡Un bandido vino y se llevó a mi hermana y a mi madre!",
+    "Se fueron hacia el campamento abandonado del norte... Tengo mucho miedo por ellas.",
+    "¡Pero ten cuidado, el bandido es muy fuerte!",
+    "Deberías tomar la ruta intermedia para llegar. Encontrarás Zoids Durmientes por el camino — es buena práctica para tus técnicas de combate.",
+    "¡Por favor, tráelas de vuelta sanas y salvas!"
+  ],
+  "captain": [
+    "¡¡¡EEEEEEY!! Necesito tu ayuda.",
+    "Los bandidos han estado saqueando nuestro pueblo. Cada día se vuelven más agresivos.",
+    "Todos nuestros soldados fueron reclutados para la guerra entre la República y el Imperio. No queda nadie para defendernos.",
+    "Yo ya estoy muy viejo para luchar. Mi cuerpo no aguanta el esfuerzo de pilotar un Zoid.",
+    "Pero todavía tengo tres Zoids de mis días como soldado. Están anticuados... pero me salvaron la vida.",
+    "¿Pilotarías uno de ellos para proteger esta aldea?"
+  ],
+  "challenge": [
+    "¿{{zoidName}}, eh? Buena elección.",
+    "Pero elegir un Zoid no es suficiente. El Zoid también debe elegirte a ti.",
+    "¡Demuestra tu valía. Sube a la cabina y demuéstrale que tienes espíritu de piloto!"
+  ],
+  "farewell": [
+    "¡Ja! Sabía que lo tenías. El Zoid te ha aceptado como su piloto.",
+    "Ahora ve y ayuda a nuestros vecinos. Los bandidos no esperarán para siempre.",
+    "Ten cuidado ahí fuera, chico. Y cuida bien de ese Zoid."
+  ],
+  "planet_intro": [
+    "En el planeta Zi, mas allá de la Vía Láctea, existen Zoids de acero con destacada capacidad de combate. Los Zoids tienen dentro de si ese espíritu guerrero.",
+    "Ellos constituyen el arma mas potente en la guerra entre el Imperio y la Republica del Planeta Zi. Durante décadas, esta guerra ha devastado estas tierras. En medio de este gran conflicto, las aldeas más pequeñas luchan por sobrevivir.",
+    "En una de estas aldeas olvidadas, una nueva amenaza se acerca..."
+  ],
+  "woman": [
+    "¡Gracias por salvarme! Pero por favor, ¡tienes que ayudarme!",
+    "¡Los bandidos... se llevaron a mi hija! ¡Lo arrastraron hacia la Colonia del Viento!",
+    "Estoy desesperada... es solo una niña. ¡Por favor, tienes que salvarla!",
+    "La Colonia del Viento está al norte. Ten cuidado, el camino es peligroso."
+  ]
+}

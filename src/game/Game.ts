@@ -1,5 +1,7 @@
 import { TICK_TIME } from '../constants';
-import type { City, Landmark, Pilot, Route } from '../landmark';
+import { t } from '../i18n';
+import type { City, Landmark, Route } from '../landmark';
+import type { Pilot } from '../models/Pilot';
 import { ActionFightPilot, ActionTalkToNPC, getCity, getLandmarkHints, getRoute, isLandmarkUnlocked, isRoute, ROUTES } from '../landmark';
 import { REGIONS } from '../map/Region';
 import { DEFAULT_PLAYER } from '../models/Player';
@@ -53,7 +55,7 @@ export class Game {
   changeLocation(landmark: Landmark): void {
     if (!isLandmarkUnlocked(landmark)) {
       const hints = getLandmarkHints(landmark);
-      setPopupMessage(new PopupMessage(hints.join('\n'), 'Locked', PopupType.Defeat));
+      setPopupMessage(new PopupMessage(hints.join('\n'), t('ui:locked'), PopupType.Defeat));
       setTimeout(() => setPopupMessage(null), 3000);
       return;
     }
@@ -81,10 +83,10 @@ export class Game {
 
   enterPilotBattle(pilot: Pilot): void {
     const battle = new PilotBattle(DEFAULT_PLAYER, pilot);
-    battle.onDefeat = () => this.endPilotBattle(new PopupMessage(`You're not strong enough to defeat ${pilot.name}. Upgrade your army and come back!`, 'Defeated!', PopupType.Defeat));
+    battle.onDefeat = () => this.endPilotBattle(new PopupMessage(t('ui:not_strong_enough', { name: t(`pilots:${pilot.id}`) }), t('ui:defeated'), PopupType.Defeat));
     battle.onVictory = () => {
       incrementPilotDefeats(pilot.id);
-      this.endPilotBattle(new PopupMessage(`${pilot.name} has been defeated!`, 'Victory!', PopupType.Victory));
+      this.endPilotBattle(new PopupMessage(t('ui:pilot_defeated', { name: t(`pilots:${pilot.id}`) }), t('ui:victory'), PopupType.Victory));
     };
     this.battle = battle;
     setPilotInfo({ id: pilot.id, name: pilot.name });

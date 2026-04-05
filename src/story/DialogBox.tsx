@@ -1,4 +1,5 @@
 import { createSignal, Show, type Component } from 'solid-js';
+import { t } from '../i18n';
 import type { DialogScript } from './Dialog';
 
 interface DialogBoxProps {
@@ -23,16 +24,16 @@ const DialogBox: Component<DialogBoxProps> = (props) => {
     <div class="dialog-box" onClick={handleClick}>
       <div class="dialog-content">
         <div class="dialog-text-area">
-          <Show when={currentLine().speaker}>
-            <div class="dialog-speaker">{currentLine().speaker}</div>
+          <Show when={currentLine().speakerKey}>
+            <div class="dialog-speaker">{t(currentLine().speakerKey)}</div>
           </Show>
-          <div class="dialog-text">{currentLine().text}</div>
+          <div class="dialog-text">{t(currentLine().textKey, currentLine().interpolation)}</div>
         </div>
         <Show when={currentLine().portrait}>
-          <img class="dialog-portrait" src={currentLine().portrait} alt={currentLine().speaker} />
+          <img class="dialog-portrait" src={currentLine().portrait} alt={t(currentLine().speakerKey)} />
         </Show>
       </div>
-      <div class="dialog-prompt">Click to continue...</div>
+      <div class="dialog-prompt">{t('ui:click_to_continue')}</div>
     </div>
   );
 };

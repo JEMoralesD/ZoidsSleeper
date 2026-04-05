@@ -1,5 +1,6 @@
 import { For, Show, type Component } from 'solid-js';
-import { getPilotImage } from '../landmark';
+import { t } from '../i18n';
+import { getPilotImage } from '../models/Pilot';
 import { getZoidImage } from '../models/Zoid';
 import {
   enemyZoid,
@@ -25,7 +26,7 @@ const PilotBattleScreen: Component<PilotBattleScreenProps> = (props) => {
   return (
     <div class="battle-screen">
       <div class="enemy-section">
-        <h2 class="enemy-name">{enemyZoid()?.name ?? 'Unknown'}</h2>
+        <h2 class="enemy-name">{enemyZoid()?.name ?? t('ui:unknown')}</h2>
         <HealthBar />
         <div class={`battle-area bg-${battleBackground()}`} onClick={() => props.onClick()}>
           {enemyZoid()?.id && (
@@ -34,7 +35,7 @@ const PilotBattleScreen: Component<PilotBattleScreenProps> = (props) => {
           <DamageNumber />
           <Show when={pilotInfo()}>
             <div class="pilot-portrait">
-              <span class="pilot-name">{pilotInfo()!.name}</span>
+              <span class="pilot-name">{t(`pilots:${pilotInfo()!.id}`)}</span>
               <div class="pilot-portrait-row">
                 <div class="pilot-zoid-roster">
                   <For each={pilotZoidIds()}>
@@ -53,7 +54,7 @@ const PilotBattleScreen: Component<PilotBattleScreenProps> = (props) => {
           </Show>
           <div class="battle-bottom">
             <Show when={showClickHint()}>
-              <p class="click-hint">Click to shoot your pilot weapon</p>
+              <p class="click-hint">{t('ui:click_hint')}</p>
             </Show>
             <PlayerHealthBar
               health={pilotPlayerHealth()}

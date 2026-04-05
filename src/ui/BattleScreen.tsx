@@ -1,4 +1,5 @@
 import { Show, type Component } from 'solid-js';
+import { t } from '../i18n';
 import { getZoidImage } from '../models/Zoid';
 import { enemyZoid, showClickHint } from '../store/gameStore';
 import { battleBackground } from '../store/landmarkStore';
@@ -14,7 +15,7 @@ const BattleScreen: Component<BattleScreenProps> = (props) => {
   return (
     <div class="battle-screen">
       <div class="enemy-section">
-        <h2 class="enemy-name">{enemyZoid()?.name ?? 'Unknown'}</h2>
+        <h2 class="enemy-name">{enemyZoid()?.name ?? t('ui:unknown')}</h2>
         <HealthBar />
         <div class={`battle-area bg-${battleBackground()}`} onClick={() => props.onClick()}>
           {enemyZoid()?.id && (
@@ -23,7 +24,7 @@ const BattleScreen: Component<BattleScreenProps> = (props) => {
           <DamageNumber />
           <div class="battle-bottom">
             <Show when={showClickHint()}>
-              <p class="click-hint">Click to shoot your pilot weapon</p>
+              <p class="click-hint">{t('ui:click_hint')}</p>
             </Show>
           </div>
         </div>
