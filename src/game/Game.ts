@@ -5,8 +5,9 @@ import { getCity } from '../models/City';
 import { ActionFightPilot, ActionTalkToNPC } from '../models/CityAction';
 import type { Landmark } from '../models/Landmark';
 import { isRoute } from '../models/Landmark';
-import { type Route, getRoute, ROUTES } from '../models/Route';
 import type { Pilot } from '../models/Pilot';
+import { getLandmarkHints, isLandmarkUnlocked } from '../models/Requirement';
+import { type Route, getRoute, ROUTES } from '../models/Route';
 import { DEFAULT_PLAYER } from '../models/Player';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
 import {
@@ -56,6 +57,12 @@ export class Game {
   }
 
   changeLocation(landmark: Landmark): void {
+    if (!isLandmarkUnlocked(landmark)) {
+      const hints = getLandmarkHints(landmark);
+      setPopupMessage(new PopupMessage(hints.join('\n'), 'Locked', PopupType.Defeat));
+      setTimeout(() => setPopupMessage(null), 3000);
+      return;
+    }
     setCurrentLandmark(landmark);
     this.wireCityActions(landmark);
     if (isRoute(landmark)) {
