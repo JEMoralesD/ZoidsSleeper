@@ -12,25 +12,25 @@ export interface Route extends Landmark {
 export const ROUTES: Route[] = [
   {
     battleBackground: BattleBackground.Grass,
-    connects: ['gleam-village', 'abandoned-camp'],
+    connects: ['gleam_village', 'abandoned_camp'],
     enemies: [
       { id: 'merda', level: 5 },
       { id: 'gator', level: 5 },
     ],
-    id: 'gleam-outskirts',
+    id: 'gleam_outskirts',
     name: 'Gleam Outskirts',
     type: LandmarkType.Route,
   },
   {
     battleBackground: BattleBackground.Desert,
-    connects: ['abandoned-camp', 'wind-colony'],
+    connects: ['abandoned_camp', 'wind_colony'],
     enemies: [
       { id: 'merda', level: 8 },
       { id: 'gator', level: 8 },
     ],
-    id: 'wind-road',
+    id: 'wind_road',
     name: 'Wind Road',
-    requirements: [new PilotDefeatRequirement('bandit1', 'Bandit')],
+    requirements: [new PilotDefeatRequirement('bandit1')],
     type: LandmarkType.Route,
   },
 ];

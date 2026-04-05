@@ -1,4 +1,5 @@
 import { For, Show, type Component } from 'solid-js';
+import { t } from '../i18n';
 import type { Landmark } from '../landmark';
 import { getCity, isLandmarkUnlocked } from '../landmark';
 import {
@@ -33,11 +34,11 @@ const WorldMap: Component<WorldMapProps> = (props) => {
   return (
     <div class={`world-map ${mapOpen() ? 'world-map--open' : ''}`}>
       <h2 class="world-map-title" onClick={() => toggleMap()}>
-        {currentRegion().name}
+        {t(`locations:${currentRegion().id}`)}
         <span class="world-map-toggle">{mapOpen() ? '▲' : '▼'}</span>
       </h2>
       <Show when={mapOpen()}>
-        <p class="world-map-subtitle">{currentRegion().subtitle}</p>
+        <p class="world-map-subtitle">{t(`locations:${currentRegion().id}_subtitle`)}</p>
         <svg
           viewBox={`${currentRegion().viewBox.x} ${currentRegion().viewBox.y} ${currentRegion().viewBox.w} ${currentRegion().viewBox.h}`}
           xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +108,7 @@ const WorldMap: Component<WorldMapProps> = (props) => {
                           y={cy() - cityRadius - 5 * scale}
                           font-size={`${fontSize}`}
                         >
-                          {city.name.split(' ').map((w) => w[0]).join('')}
+                          {t(`locations:${city.id}`).split(' ').map((w) => w[0]).join('')}
                         </text>
                       </g>
                     );

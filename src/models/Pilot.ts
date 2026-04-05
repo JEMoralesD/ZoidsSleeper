@@ -6,24 +6,16 @@ export interface Pilot {
   zoids: ZoidRef[];
 }
 
-export const PILOTS: Pilot[] = [
-  {
+export const PILOTS: Record<string, Pilot> = {
+  bandit1: {
     id: 'bandit1',
     name: 'Bandit',
     zoids: [
       { id: 'molga', level: 5 },
     ],
   },
-];
-
-export function getPilot(id: string): Pilot | undefined {
-  return PILOTS.find((p) => p.id === id);
-}
+};
 
 export function getPilotImage(id: string): string {
   return `images/pilots/${id}.png`;
-}
-
-export function randomPilot(): Pilot {
-  return PILOTS[Math.floor(Math.random() * PILOTS.length)];
 }

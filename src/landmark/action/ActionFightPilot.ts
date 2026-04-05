@@ -1,21 +1,24 @@
+import { t } from '../../i18n';
 import type { Requirement } from '../../requirement';
-import type { Pilot } from '../Pilot';
+import type { Pilot } from '../../models/Pilot';
 import type { CityAction } from './CityAction';
 
 export class ActionFightPilot implements CityAction {
   completeRequirements?: Requirement[];
   id: string;
-  label: string;
   onExecute: (() => void) | null = null;
   pilot: Pilot;
   requirements?: Requirement[];
 
-  constructor(pilot: Pilot, label: string, completeRequirements?: Requirement[], requirements?: Requirement[]) {
+  constructor(pilot: Pilot, completeRequirements?: Requirement[], requirements?: Requirement[]) {
     this.completeRequirements = completeRequirements;
     this.id = `fight-${pilot.id}`;
-    this.label = label;
     this.pilot = pilot;
     this.requirements = requirements;
+  }
+
+  getLabel(): string {
+    return t('ui:fight_pilot', { name: t(`pilots:${this.pilot.id}`) });
   }
 
   execute(): void {

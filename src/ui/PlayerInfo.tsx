@@ -1,4 +1,5 @@
 import { Show, type Component } from 'solid-js';
+import { t } from '../i18n';
 import { CITIES, findRouteKillRequirement } from '../landmark';
 import { calculateClickAttack } from '../models/Player';
 import { playerStats } from '../store/gameStore';
@@ -16,22 +17,22 @@ const PlayerInfo: Component = () => {
     <div class="player-info">
       <Show when={isOnRoute()}>
         <div class="player-stats-row">
-          <span class="player-stat-label">{currentLandmark().name}</span>
+          <span class="player-stat-label">{t(`locations:${currentLandmark().id}`)}</span>
           <Show
             when={pendingKillReq()}
-            fallback={<span class="player-stat-label">Zoids Defeated: <span class="player-stat-value">{getRouteKills(currentLandmark().id)}</span></span>}
+            fallback={<span class="player-stat-label">{t('ui:zoids_defeated')}: <span class="player-stat-value">{getRouteKills(currentLandmark().id)}</span></span>}
           >
-            {(req) => <span class="player-stat-label">Zoids Fights Completed: <span class="player-stat-value">{req().progress()}/{req().requiredValue}</span></span>}
+            {(req) => <span class="player-stat-label">{t('ui:fights_completed')}: <span class="player-stat-value">{req().progress()}/{req().requiredValue}</span></span>}
           </Show>
         </div>
       </Show>
       <div class="player-stats-row">
         <div class="player-stat">
-          <span class="player-stat-label">Total Zoids Attack</span>
+          <span class="player-stat-label">{t('ui:total_attack')}</span>
           <span class="player-stat-value">{partyAttack()}</span>
         </div>
         <div class="player-stat">
-          <span class="player-stat-label">Manual Attack</span>
+          <span class="player-stat-label">{t('ui:manual_attack')}</span>
           <span class="player-stat-value">{playerStats() ? calculateClickAttack(playerStats()!) : 0}</span>
         </div>
       </div>
