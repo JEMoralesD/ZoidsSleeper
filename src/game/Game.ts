@@ -2,7 +2,7 @@ import { TICK_TIME } from '../constants';
 import { REGIONS } from '../map/Region';
 import type { City } from '../models/City';
 import { getCity } from '../models/City';
-import { ActionFightPilot } from '../models/CityAction';
+import { ActionFightPilot, ActionTalkToNPC } from '../models/CityAction';
 import type { Landmark } from '../models/Landmark';
 import { isRoute } from '../models/Landmark';
 import { type Route, getRoute, ROUTES } from '../models/Route';
@@ -21,6 +21,7 @@ import {
   setPilotZoidIds,
   setPlayerStats,
   setShowClickHint,
+  setActiveDialog,
   setPopupMessage,
 } from '../store/gameStore';
 import { setCurrentLandmark } from '../store/landmarkStore';
@@ -131,6 +132,8 @@ export class Game {
     city.actions?.forEach((action) => {
       if (action instanceof ActionFightPilot) {
         action.onExecute = () => this.enterPilotBattle(action.pilot);
+      } else if (action instanceof ActionTalkToNPC) {
+        action.onExecute = () => setActiveDialog(action.script);
       }
     });
   }

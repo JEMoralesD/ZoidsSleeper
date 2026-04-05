@@ -1,5 +1,6 @@
+import { NPCDialogs } from '../npc/dialogs';
 import type { CityAction } from './CityAction';
-import { ActionFightPilot } from './CityAction';
+import { ActionFightPilot, ActionTalkToNPC } from './CityAction';
 import type { Landmark } from './Landmark';
 import { BattleBackground, LandmarkType } from './Landmark';
 import { getPilot } from './Pilot';
@@ -19,7 +20,14 @@ export const CITIES: City[] = [
     name: 'Abandoned Camp',
     type: LandmarkType.City,
   },
-  { battleBackground: BattleBackground.Grass, id: 'gleam-village', mapPosition: { x: 53, y: 87 }, name: 'Gleam Village', type: LandmarkType.City },
+  {
+    actions: [new ActionTalkToNPC('boy', NPCDialogs.boy, 'Talk to Boy')],
+    battleBackground: BattleBackground.Grass,
+    id: 'gleam-village',
+    mapPosition: { x: 53, y: 87 },
+    name: 'Gleam Village',
+    type: LandmarkType.City,
+  },
 ];
 
 export function getCity(id: string): City | undefined {

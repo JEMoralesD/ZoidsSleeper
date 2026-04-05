@@ -2,7 +2,8 @@ import { createMemo, createSignal, Match, onCleanup, onMount, Show, Switch, type
 import { Game } from './game/Game';
 import WorldMap from './map/WorldMap';
 import { PopupType } from './models/PopupMessage';
-import { battleState, gamePhase, popupMessage } from './store/gameStore';
+import { activeDialog, battleState, gamePhase, popupMessage, setActiveDialog } from './store/gameStore';
+import DialogBox from './story/DialogBox';
 import IntroSequence from './story/IntroSequence';
 import BattleScreen from './ui/BattleScreen';
 import IdleLandmarkScreen from './ui/IdleLandmarkScreen';
@@ -28,6 +29,11 @@ const App: Component = () => {
   return (
     <div class="app">
       <h1>Zoids Sleeper</h1>
+      <Show when={activeDialog()}>
+        <div class="dialog-overlay">
+          <DialogBox script={activeDialog()!} onComplete={() => setActiveDialog(null)} />
+        </div>
+      </Show>
       <Show
         when={gamePhase() === 'playing'}
         fallback={<IntroSequence onComplete={(id) => game?.completeIntro(id)} />}
