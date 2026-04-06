@@ -3,6 +3,7 @@ import type { Requirement } from '../../requirement';
 export interface CityAction {
   completeRequirements?: Requirement[];
   id: string;
+  onComplete?: () => void;
   requirements?: Requirement[];
   execute(): void;
   getLabel(): string;

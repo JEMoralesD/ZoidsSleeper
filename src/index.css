@@ -878,11 +878,18 @@ body {
 
 /* Settings Menu */
 
-.settings-menu {
+.header-buttons {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
   position: fixed;
   right: 1rem;
   top: 1rem;
   z-index: 50;
+}
+
+.settings-menu {
+  position: relative;
 }
 
 .settings-gear {
@@ -1096,6 +1103,143 @@ body {
 .campaign-status-check {
   color: #4caf50;
   font-size: 0.75rem;
+}
+
+/* Supplies */
+
+.supplies-button {
+  align-items: center;
+  background: #16213e;
+  border: 2px solid #0f3460;
+  border-radius: 50%;
+  color: #e0e0e0;
+  cursor: pointer;
+  display: flex;
+  height: 2.5rem;
+  justify-content: center;
+  transition: border-color 0.2s, color 0.2s;
+  width: 2.5rem;
+}
+
+.supplies-button:hover {
+  border-color: #00d4ff;
+  color: #00d4ff;
+}
+
+.supplies-button-icon {
+  filter: invert(1);
+}
+
+.supplies-overlay {
+  align-items: flex-start;
+  background: rgb(0 0 0 / 60%);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding-top: 5rem;
+  position: fixed;
+  z-index: 100;
+}
+
+.supplies-panel {
+  background: #16213e;
+  border: 2px solid #0f3460;
+  border-radius: 12px;
+  max-height: 70vh;
+  max-width: 500px;
+  overflow-y: auto;
+  padding: 1.25rem;
+  width: 90%;
+}
+
+.supplies-header {
+  align-items: center;
+  border-bottom: 1px solid #0f3460;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+}
+
+.supplies-title {
+  color: #00d4ff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.supplies-close {
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.supplies-close:hover {
+  color: #e94560;
+}
+
+.supplies-empty {
+  color: #666;
+  font-size: 0.9rem;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.supplies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.supplies-item {
+  align-items: center;
+  background: #1a1a2e;
+  border: 1px solid #0f3460;
+  border-radius: 6px;
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+}
+
+.supplies-item-type {
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+
+.type-important {
+  color: #ffd700;
+}
+
+.type-consumable {
+  color: #4caf50;
+}
+
+.supplies-item-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.supplies-item-name {
+  color: #e0e0e0;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.supplies-item-desc {
+  color: #999;
+  font-size: 0.75rem;
+}
+
+.supplies-item-count {
+  color: #00d4ff;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
 /* Mobile Responsive */

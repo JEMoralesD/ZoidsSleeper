@@ -1,4 +1,5 @@
 export { CampaignCompletedRequirement } from './CampaignCompletedRequirement';
+export { ItemRequirement } from './ItemRequirement';
 export { MagnisRequirement } from './MagnisRequirement';
 export { MissionCompletedRequirement } from './MissionCompletedRequirement';
 export { NpcTalkedInCampaignRequirement } from './NpcTalkedInCampaignRequirement';
