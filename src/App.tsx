@@ -32,7 +32,7 @@ const App: Component = () => {
   return (
     <div class="app">
       <div class="app-header">
-        <h1>Zoids Sleeper</h1>
+        <div class="game-title-bar"><h1 class="game-title">Zoids Sleeper</h1></div>
         <SettingsMenu />
       </div>
       <Show when={activeDialog()}>
