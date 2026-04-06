@@ -19,11 +19,44 @@ body {
   gap: 0.5rem;
 }
 
-h1 {
-  color: #00d4ff;
-  font-size: 2rem;
+.game-title-bar {
+  background: linear-gradient(
+    180deg,
+    #c9a83e 0%,
+    #e8cc5a 15%,
+    #f0d96c 30%,
+    #d4b44a 50%,
+    #b8942e 70%,
+    #a07820 85%,
+    #886818 100%
+  );
+  border: 2px solid #a07820;
+  border-radius: 14px;
+  box-shadow: inset 0 1px 2px rgb(255 230 120 / 50%), inset 0 -1px 2px rgb(80 50 10 / 40%), 0 2px 8px rgb(0 0 0 / 40%);
+  padding: 0.1em 0.5em;
+}
+
+.game-title {
+  font-size: 2.5rem;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
+  font-weight: 900;
+  margin: 0;
+  background: linear-gradient(
+    180deg,
+    #1a5cb0 0%,
+    #2878d0 10%,
+    #50a0e8 22%,
+    #f0f0ff 35%,
+    #e8d0e0 50%,
+    #c890b0 65%,
+    #a06888 80%,
+    #806078 100%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1.5px rgb(180 140 40 / 70%);
+  filter: drop-shadow(0 2px 2px rgb(0 0 0 / 90%)) drop-shadow(0 -1px 1px rgb(255 255 255 / 35%));
 }
 
 .battle-screen {
@@ -1073,7 +1106,7 @@ h1 {
     padding: 1rem;
   }
 
-  h1 {
+  .game-title {
     font-size: 1.5rem;
   }
 
@@ -1146,7 +1179,7 @@ h1 {
     padding: 0.5rem;
   }
 
-  h1 {
+  .game-title {
     font-size: 1.2rem;
     letter-spacing: 0.1em;
   }

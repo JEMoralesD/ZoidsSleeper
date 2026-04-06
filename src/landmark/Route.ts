@@ -18,6 +18,7 @@ export const ROUTES: Route[] = [
     enemies: [
       { id: 'merda', level: 5 },
       { id: 'gator', level: 5 },
+      { id: 'malder', level: 5 },
     ],
     id: 'gleam_outskirts',
     baseReward: 30, // 5 ~ 55 Magnis
@@ -31,6 +32,8 @@ export const ROUTES: Route[] = [
     enemies: [
       { id: 'merda', level: 8 },
       { id: 'gator', level: 8 },
+      { id: 'malder', level: 8 },
+      { id: 'zatton', level: 10 },
     ],
     id: 'wind_road',
     baseReward: 50, // 25 ~ 75 Magnis

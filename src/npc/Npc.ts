@@ -1,3 +1,4 @@
+import { MissionCompletedRequirement } from '../requirement';
 import type { Requirement } from '../requirement';
 
 export interface NpcDialog {
@@ -19,6 +20,16 @@ export const NPCS: Record<string, Npc> = {
     ],
     id: 'boy',
     nameKey: 'pilots:boy',
+  },
+  jenkins: {
+    dialogs: [
+      {
+        dialogKey: 'dialog:jenkins',
+        unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'report_to_captain'),
+      },
+    ],
+    id: 'jenkins',
+    nameKey: 'pilots:jenkins',
   },
   captain_malinoff: {
     dialogs: [

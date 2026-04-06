@@ -40,9 +40,11 @@ export const ZOID_LIST: Record<string, ZoidData> = {
   garius: {attack: 50, baseExp: 10, id: 'garius', levelType: LevelType.Fast, maxHealth: 100, name: 'Garius'},
   gator: {attack: 150, baseExp: 35, id: 'gator', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Gator'},
   glidoler: {attack: 100, baseExp: 10, id: 'glidoler', levelType: LevelType.MediumFast, maxHealth: 40, name: 'Glidoler'},
+  malder: { attack: 20, baseExp: 40, id: 'malder', levelType: LevelType.Erratic, maxHealth: 700, name: 'Malder' },
   merda: {attack: 50, baseExp: 20, id: 'merda', levelType: LevelType.Fast, maxHealth: 100, name: 'Merda'},
   molga: { attack: 100, baseExp: 35, id: 'molga', levelType: LevelType.Fast, maxHealth: 400, name: 'Molga' },
   tortoise: { attack: 100, baseExp: 30, id: 'tortoise', levelType: LevelType.Fast, maxHealth: 700, name: 'Cannon Tortoise' },
+  zatton: { attack: 120, baseExp: 40, id: 'zatton', levelType: LevelType.MediumSlow, maxHealth: 350, name: 'Zatton' },
 };
 
 export function calculatePartyAttack(party: OwnedZoid[]): number {
