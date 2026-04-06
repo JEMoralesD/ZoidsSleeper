@@ -5,11 +5,13 @@ import { campaignStates } from '../store/campaignStore';
 import { currentLandmark } from '../store/landmarkStore';
 import { party } from '../store/partyStore';
 import { pilotDefeats, routeKills } from '../store/statisticsStore';
+import { inventory } from '../store/inventoryStore';
 import { wallet } from '../store/walletStore';
 const SAVE_KEY = 'zoids-sleeper-save';
 
 interface SaveData {
   campaigns?: Record<string, CampaignSaveData>;
+  inventory?: Record<string, number>;
   landmarkId: string;
   party?: OwnedZoid[];
   pilotDefeats?: Record<string, number>;
@@ -36,6 +38,7 @@ export class Save {
   store(): void {
     const data: SaveData = {
       campaigns: campaignStates(),
+      inventory: inventory(),
       landmarkId: currentLandmark().id,
       party: party(),
       pilotDefeats: pilotDefeats(),

@@ -8,13 +8,15 @@ export class ActionTalkToNPC implements CityAction {
   completeRequirements?: Requirement[];
   id: string;
   npcId: string;
+  onComplete?: () => void;
   onExecute: (() => void) | null = null;
   requirements?: Requirement[];
 
-  constructor(npcId: string, completeRequirements?: Requirement[], requirements?: Requirement[]) {
+  constructor(npcId: string, completeRequirements?: Requirement[], requirements?: Requirement[], onComplete?: () => void) {
     this.completeRequirements = completeRequirements;
     this.id = `talk-${npcId}`;
     this.npcId = npcId;
+    this.onComplete = onComplete;
     this.requirements = requirements;
   }
 
@@ -27,6 +29,8 @@ export class ActionTalkToNPC implements CityAction {
 
   execute(): void {
     this.onExecute?.();
+    this.onComplete?.();
+    this.onComplete = undefined;
   }
 
   getLabel(): string {

@@ -27,6 +27,7 @@ import {
 import { setCurrentLandmark } from '../store/landmarkStore';
 import { setParty } from '../store/partyStore';
 import { incrementPilotDefeats, loadStatistics } from '../store/statisticsStore';
+import { loadInventory } from '../store/inventoryStore';
 import { addCurrency, loadWallet } from '../store/walletStore';
 import { BaseBattle } from './BaseBattle';
 import { Battle } from './Battle';
@@ -168,6 +169,9 @@ export class Game {
       }
       if (data.routeKills || data.pilotDefeats) {
         loadStatistics(data.routeKills ?? {}, data.pilotDefeats ?? {});
+      }
+      if (data.inventory) {
+        loadInventory(data.inventory);
       }
       if (data.wallet) {
         loadWallet(data.wallet);

@@ -1,10 +1,12 @@
-import { MissionCompletedRequirement, PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
+import { ITEMS } from '../item';
+import { PILOTS } from '../models/Pilot';
+import { ItemRequirement, MissionCompletedRequirement, PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
+import { addItem } from '../store/inventoryStore';
 import { ActionFightPilot } from './action/ActionFightPilot';
 import { ActionTalkToNPC } from './action/ActionTalkToNPC';
 import type { CityAction } from './action/CityAction';
 import type { Landmark } from './Landmark';
 import { BattleBackground, LandmarkType } from './Landmark';
-import { PILOTS } from '../models/Pilot';
 
 export interface City extends Landmark {
   actions?: CityAction[];
@@ -16,7 +18,7 @@ export const CITIES: City[] = [
   {
     actions: [
       new ActionFightPilot(PILOTS['bandit1'], [new PilotDefeatRequirement('bandit1')]),
-      new ActionTalkToNPC('woman', undefined, [new PilotDefeatRequirement('bandit1')]),
+      new ActionTalkToNPC('woman', [new MissionCompletedRequirement('sleeper_commander', 'report_to_captain')], [new PilotDefeatRequirement('bandit1')], () => addItem('sleeper_module', 1, true)),
     ],
     battleBackground: BattleBackground.Grass,
     id: 'abandoned_camp',
@@ -28,7 +30,7 @@ export const CITIES: City[] = [
   {
     actions: [
       new ActionTalkToNPC('boy', [new MissionCompletedRequirement('sleeper_commander', 'talk_to_hostage')]),
-      new ActionTalkToNPC('captain_malinoff', [new MissionCompletedRequirement('sleeper_commander', 'talk_to_jenkins')], [new MissionCompletedRequirement('sleeper_commander', 'talk_to_hostage')]),
+      new ActionTalkToNPC('captain_malinoff', [new MissionCompletedRequirement('sleeper_commander', 'talk_to_jenkins')], [new ItemRequirement(ITEMS.sleeper_module.id)]),
       new ActionTalkToNPC('jenkins', undefined, [new MissionCompletedRequirement('sleeper_commander', 'report_to_captain')]),
       new ActionTalkToNPC('scrap_dealer'),
     ],
