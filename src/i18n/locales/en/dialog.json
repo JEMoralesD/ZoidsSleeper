@@ -6,6 +6,20 @@
     "You should take the intermediate route to get there. You'll encounter Zoids Sleepers along the way — it's good practice for your combat techniques.",
     "Please, bring them back safely!"
   ],
+  "jenkins": [
+    "So Malinoff sent you? Well, well... I saw how you helped the people of this village, so I'll hear you out.",
+    "More Zoids, you say? The easiest way is buying them from the army, though they'll only sell you their scraps.",
+    "I stopped working with Zoids a long time ago, but back in my day we used traps to catch wild Zoids. Nowadays it's nearly impossible to find them, let alone get one to cooperate with you.",
+    "So the armies came up with a new method: we learned to incubate Zoid Cores.",
+    "As you know, the Zoid Core is the vital nucleus of every Zoid. Each species has a different Core, but they all share the same origin: the metals dissolved in the planet's primordial waters.",
+    "What we managed to do was recreate the conditions of those ancient waters in a laboratory. If you gather enough Zoid Magnite, or failing that, plenty of Magnis, we can submerge it in that substance and create a brand new Zoid Core.",
+    "The next step is shaping that Core into the species you need. For that, you'll need the Zoid's structural data.",
+    "Here, take this. It's a Core Analyzer. Connect it to an active Zoid Core and you can scan its structure to get the data we need to shape a new Core after that species.",
+    "There are a lot of Zoid Sleepers roaming this region lately. If you come across one, try not to wreck it and analyze its Core instead.",
+    "Fair warning though — no Zoid will just let you access its Core. You'll have to immobilize it first. I won't lie to you, taking down a Zoid without destroying it is no easy feat.",
+    "Once you've got the data from a Zoid, come see me and we'll start incubating some Cores. With this basic lab, we can only hatch simple Zoids, and I can't promise a high success rate.",
+    "One last thing: to connect the Analyzer to the Cores you'll need a Probe. They're single-use, so you'll have to stock up. Visit Mrs. Becker's workshop, she should have them."
+  ],
   "captain_debrief": [
     "Thank you for your help, I knew there was something special about you...",
     "Hmmm an artifact used by the bandits? Let me take a look...",

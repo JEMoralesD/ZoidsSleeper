@@ -6,6 +6,20 @@
     "Deberías tomar la ruta intermedia para llegar. Encontrarás Zoids Sleepers por el camino — es buena práctica para tus técnicas de combate.",
     "¡Por favor, tráelas de vuelta sanas y salvas!"
   ],
+  "jenkins": [
+    "¿Así que Malinoff te envía? Vaya, vaya... Vi cómo ayudaste a la gente de esta aldea, así que por eso acepto hablar contigo.",
+    "¿Conseguir más Zoids? La forma más fácil es comprárselos al ejército, aunque solo te darán sus desechos.",
+    "Yo dejé de trabajar con Zoids hace mucho, pero en mis tiempos usábamos trampas para capturar Zoids salvajes. Hoy en día es casi imposible encontrarlos, y más aún lograr que cooperen contigo.",
+    "Así que los ejércitos idearon una nueva forma: aprendimos a incubar Zoid Cores.",
+    "Como sabes, el Zoid Core es el núcleo vital de cada Zoid. Cada especie tiene un Core distinto, pero todos comparten un mismo origen: los metales disueltos en las aguas primigenias del planeta.",
+    "Lo que logramos fue recrear las condiciones de esas aguas primitivas en un laboratorio. Si consigues suficiente Zoid Magnite, o en su defecto bastante Magnis, podemos sumergirlo en esa sustancia y crear un Zoid Core nuevo.",
+    "El siguiente paso es moldear ese Core a la especie que necesites. Para eso hacen falta datos estructurales del Zoid.",
+    "Toma, esto es un Analizador de Cores. Si lo conectas a un Zoid Core activo, puedes escanear su estructura y obtener los datos que necesitamos para moldear un Core nuevo según esa especie.",
+    "Últimamente hay muchos Zoid Sleepers por esta región. Si te topas con uno, intenta no destrozarlo y analiza su Core.",
+    "Eso sí, ningún Zoid te dará acceso a su Core así como así. Tendrás que inmovilizarlo primero. No te voy a mentir, inmovilizar un Zoid sin destruirlo no es tarea fácil.",
+    "Si consigues los datos de un Zoid, ven a verme y pondremos a incubar algunos Cores. Aunque con este laboratorio tan básico solo podremos crear Zoids simples, y no te garantizo mucho éxito.",
+    "Solo te falta una pieza importante: para conectar el Analizador a los Cores necesitarás una Sonda. Son de un solo uso, así que tendrás que invertir en ellas. Visita el taller de la señora Becker, seguro las tiene."
+  ],
   "captain_debrief": [
     "Gracias por tu ayuda, sabía que había algo especial en ti...",
     "Hmmm un artefacto usado por los bandidos? Dejame verlo...",

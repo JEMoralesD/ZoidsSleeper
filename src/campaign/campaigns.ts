@@ -11,6 +11,7 @@ export const CAMPAIGNS: Record<string, Campaign> = {
       { id: 'beat_bandit', goals: [new PilotDefeatRequirement('bandit1')] },
       { id: 'talk_to_hostage', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'woman')] },
       { id: 'report_to_captain', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'captain_malinoff')] },
+      { id: 'talk_to_jenkins', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'jenkins')] },
     ],
   },
 };

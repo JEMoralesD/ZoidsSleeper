@@ -14,6 +14,10 @@
         "description": "Puede ser que el anciano capitán sepa más sobre este artefacto, habla con él",
         "name": "Reporta al capitán"
       },
+      "talk_to_jenkins": {
+        "description": "El capitán mencionó al viejo Jenkins, un antiguo investigador de laboratorio de Zoids. Encuéntralo y muéstrale el módulo Sleeper.",
+        "name": "Habla con el viejo Jenkins"
+      },
       "talk_to_boy": {
         "description": "Hay un chico en la aldea que luce muy desesperado, habla con el.",
         "name": "Habla con el chico"
