@@ -38,7 +38,7 @@ export const ROUTES: Route[] = [
     id: 'wind_road',
     baseReward: 50, // 25 ~ 75 Magnis
     name: 'Wind Road',
-    requirements: [new MissionCompletedRequirement(CAMPAIGNS.sleeper_commander.id, 'report_to_captain')],
+    requirements: [new MissionCompletedRequirement(CAMPAIGNS.sleeper_commander.id, 'talk_to_jenkins')],
     type: LandmarkType.Route,
   },
 ];

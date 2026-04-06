@@ -1,0 +1,6 @@
+{
+  "sleeper_module": {
+    "description": "A strange module that allows to control multiple Sleepers behavior at the same time.",
+    "name": "Sleeper Module"
+  }
+}

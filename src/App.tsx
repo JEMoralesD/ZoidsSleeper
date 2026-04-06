@@ -1,21 +1,24 @@
 import { createMemo, createSignal, Match, onCleanup, onMount, Show, Switch, type Component } from 'solid-js';
 import { Game } from './game/Game';
+import { t } from './i18n';
 import WorldMap from './map/WorldMap';
 import { PopupType } from './models/PopupMessage';
 import { activeDialog, battleState, gamePhase, popupMessage, setActiveDialog } from './store/gameStore';
 import DialogBox from './story/DialogBox';
 import IntroSequence from './story/IntroSequence';
 import BattleScreen from './ui/BattleScreen';
-import IdleLandmarkScreen from './ui/IdleLandmarkScreen';
-import SettingsMenu from './ui/SettingsMenu';
-import PartyPanel from './ui/PartyPanel';
-import WalletPanel from './ui/WalletPanel';
 import CampaignPanel from './ui/CampaignPanel';
+import IdleLandmarkScreen from './ui/IdleLandmarkScreen';
+import PartyPanel from './ui/PartyPanel';
 import PilotBattleScreen from './ui/PilotBattleScreen';
+import SettingsMenu from './ui/SettingsMenu';
+import SuppliesPanel from './ui/SuppliesPanel';
+import WalletPanel from './ui/WalletPanel';
 
 const App: Component = () => {
   let game: Game;
   const [showParty, setShowParty] = createSignal(true);
+  const [showSupplies, setShowSupplies] = createSignal(false);
 
   const isFighting = createMemo(() => battleState() === 'fighting' || battleState() === 'victory');
   const isPilotBattleMode = createMemo(() => battleState().startsWith('pilot-'));
@@ -33,8 +36,16 @@ const App: Component = () => {
     <div class="app">
       <div class="app-header">
         <div class="game-title-bar"><h1 class="game-title">Zoids Sleeper</h1></div>
-        <SettingsMenu />
+        <div class="header-buttons">
+          <button class="supplies-button" onClick={() => setShowSupplies((v) => !v)} title={t('ui:supplies')}>
+            <img class="supplies-button-icon" src="images/icons/box-solid.svg" width="20" height="20" alt="Supplies" />
+          </button>
+          <SettingsMenu />
+        </div>
       </div>
+      <Show when={showSupplies()}>
+        <SuppliesPanel onClose={() => setShowSupplies(false)} />
+      </Show>
       <Show when={activeDialog()}>
         <div class="dialog-overlay">
           <DialogBox script={activeDialog()!} onComplete={() => setActiveDialog(null)} />
