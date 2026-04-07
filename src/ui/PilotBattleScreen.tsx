@@ -30,7 +30,7 @@ const PilotBattleScreen: Component<PilotBattleScreenProps> = (props) => {
         <HealthBar />
         <div class={`battle-area bg-${battleBackground()}`} onClick={() => props.onClick()}>
           {enemyZoid()?.id && (
-            <img class="enemy-image" src={getZoidImage(enemyZoid()!.id)} alt={enemyZoid()!.name} />
+            <img class="enemy-image" src={getZoidImage(enemyZoid()!.id, enemyZoid()!.imageOverride)} alt={enemyZoid()!.name} />
           )}
           <DamageNumber />
           <Show when={pilotInfo()}>
@@ -39,11 +39,11 @@ const PilotBattleScreen: Component<PilotBattleScreenProps> = (props) => {
               <div class="pilot-portrait-row">
                 <div class="pilot-zoid-roster">
                   <For each={pilotZoidIds()}>
-                    {(id, index) => (
+                    {(zoid, index) => (
                       <img
                         class={index() < pilotEnemyProgress().current ? 'defeated' : ''}
-                        src={getZoidImage(id)}
-                        alt={id}
+                        src={getZoidImage(zoid.id, zoid.imageOverride)}
+                        alt={zoid.id}
                       />
                     )}
                   </For>
