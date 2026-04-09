@@ -1,5 +1,7 @@
 import { createSignal } from 'solid-js';
 
+import { canScan } from '../game/Scan';
+
 export const ScanMode = { Off: 'off', Permanent: 'permanent', Single: 'single' } as const;
 export type ScanMode = (typeof ScanMode)[keyof typeof ScanMode];
 
@@ -19,7 +21,9 @@ function getActiveScanMode(): ScanMode {
 }
 
 function resetScanAfterBattle(): void {
-  if (activeScan()?.mode === ScanMode.Single) {
+  const current = activeScan();
+  if (!current) {return;}
+  if (current.mode === ScanMode.Single || !canScan(current.deviceId)) {
     setActiveScan(null);
   }
 }
