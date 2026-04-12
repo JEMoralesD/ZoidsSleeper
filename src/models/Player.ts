@@ -6,6 +6,6 @@ export interface PlayerStats {
 
 export const DEFAULT_PLAYER: PlayerStats = {
   attackMult: 1,
-  baseHealth: 0,
+  baseHealth: 10,
   clickAttack: 1,
 };
