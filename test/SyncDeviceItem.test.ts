@@ -18,14 +18,14 @@ describe('SyncDeviceItem', () => {
   });
 });
 
-describe('core_probe in ITEMS', () => {
+describe('core_preserver in ITEMS', () => {
   it('should exist with correct values', () => {
-    const probe = ITEMS.core_probe as SyncDeviceItem;
+    const preserver = ITEMS.core_preserver as SyncDeviceItem;
 
-    expect(probe).toBeDefined();
-    expect(probe.id).toBe('core_probe');
-    expect(probe.type).toBe(ItemType.Consumable);
-    expect(probe.price).toBe(100);
-    expect(probe.successBonus).toBe(0);
+    expect(preserver).toBeDefined();
+    expect(preserver.id).toBe('core_preserver');
+    expect(preserver.type).toBe(ItemType.Consumable);
+    expect(preserver.price).toBe(100);
+    expect(preserver.successBonus).toBe(0);
   });
 });

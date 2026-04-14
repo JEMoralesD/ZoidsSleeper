@@ -3,11 +3,11 @@ import { migrate } from '../src/game/migrations';
 
 describe('migrate', () => {
   it('should return data unchanged when no migrations apply', () => {
-    const data = { landmarkId: 'test', version: '0.2.0' };
+    const data = { landmarkId: 'test', version: '0.2.1' };
 
-    const result = migrate(data, '0.2.0');
+    const result = migrate(data, '0.2.1');
 
-    expect(result).toEqual({ landmarkId: 'test', version: '0.2.0' });
+    expect(result).toEqual({ landmarkId: 'test', version: '0.2.1' });
   });
 
   it('should skip migrations older than saved version', () => {
@@ -16,6 +16,38 @@ describe('migrate', () => {
     const result = migrate(data, '1.0.0');
 
     expect(result).toEqual({ landmarkId: 'test', version: '1.0.0' });
+  });
+
+  describe('0.2.1 migration', () => {
+    it('should convert core_probe inventory to core_preserver', () => {
+      const data = { inventory: { core_probe: 3 }, landmarkId: 'test', version: '0.2.0' };
+
+      migrate(data, '0.2.0');
+
+      expect(data.inventory).toEqual({ core_preserver: 3 });
+    });
+
+    it('should merge core_probe into existing core_preserver count', () => {
+      const data = { inventory: { core_preserver: 1, core_probe: 2 }, landmarkId: 'test', version: '0.2.0' };
+
+      migrate(data, '0.2.0');
+
+      expect(data.inventory).toEqual({ core_preserver: 3 });
+    });
+
+    it('should not fail when no inventory exists', () => {
+      const data = { landmarkId: 'test', version: '0.2.0' };
+
+      expect(() => migrate(data, '0.2.0')).not.toThrow();
+    });
+
+    it('should not change inventory without core_probe', () => {
+      const data = { inventory: { core_preserver: 5 }, landmarkId: 'test', version: '0.2.0' };
+
+      migrate(data, '0.2.0');
+
+      expect(data.inventory).toEqual({ core_preserver: 5 });
+    });
   });
 
   describe('0.2.0 migration', () => {

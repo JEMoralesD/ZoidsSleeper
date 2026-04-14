@@ -6,6 +6,12 @@ export type MigrationData = Partial<SaveData> & Record<string, unknown>;
 type MigrationFn = (data: MigrationData) => void;
 
 const migrations: Record<string, MigrationFn> = {
+  '0.2.1': (data) => {
+    const inv = data.inventory as Record<string, number> | undefined;
+    if (!inv?.['core_probe']) {return;}
+    inv['core_preserver'] = (inv['core_preserver'] ?? 0) + inv['core_probe'];
+    delete inv['core_probe'];
+  },
   '0.2.0': (data) => {
     const campaign = data.campaigns?.['sleeper_commander'];
     if (!campaign) {return;}

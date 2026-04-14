@@ -8,15 +8,15 @@
     "Blu ha estado lidiando solo con eso, pero ni con su Guysack logra espantar al mocoso. Vamos a las ruinas a ayudar a Blu a deshacerse de esa plaga de una vez por todas."
   ],
   "becker_scan": [
-    "¡Oh, un cliente! Rara vez me compran Sondas de Core, así que déjame darte un consejo para que les saques provecho.",
-    "Cuando enfrentes a un Zoid Sleeper, haz clic en la sonda antes de que termine la batalla. Si logras debilitarlo lo suficiente, podrás escanear su Core. ¿Vas a pelear contra varios seguidos? Haz doble clic y la sonda se activará automáticamente en cada combate.",
-    "Eso sí, las sondas son frágiles. Se rompen con cada intento, aciertes o no. Así que necesitarás una por cada escaneo. Pero por mí no hay problema... ¡mientras más compres, mejor para el negocio!"
+    "¡Oh, un cliente! Rara vez me compran Preservadores de Core, así que déjame darte un consejo para que les saques provecho.",
+    "Cuando enfrentes a un Zoid Sleeper, activa el preservador antes de que termine la batalla. Si logras debilitarlo lo suficiente, el preservador intentará extraer y preservar su Core. ¿Vas a pelear contra varios seguidos? Haz doble clic y el preservador se activará automáticamente en cada combate.",
+    "Eso sí, cada preservador debe estar estéril para no dañar el Core, así que solo se pueden usar una vez. Necesitarás uno por cada extracción. Pero por mí no hay problema... ¡mientras más compres, mejor para el negocio!"
   ],
   "becker_scan_gift": [
-    "¡Bienvenido! Jenkins me dijo que vendrías. Déjame explicarte cómo funcionan las Sondas de Core.",
-    "Cuando enfrentes a un Zoid Sleeper, haz clic en la sonda antes de que termine la batalla. Si logras debilitarlo lo suficiente, podrás escanear su Core. ¿Vas a pelear contra varios seguidos? Haz doble clic y la sonda se activará automáticamente en cada combate.",
-    "Eso sí, las sondas son frágiles. Se rompen con cada intento, aciertes o no. Así que necesitarás una por cada escaneo. Pero por mí no hay problema... ¡mientras más compres, mejor para el negocio!",
-    "Toma, estas 5 Sondas de Core van por cuenta de la casa. Las necesitarás para escanear a esos Sleepers de ahí afuera. ¡Buena suerte!"
+    "¡Bienvenido! Jenkins me dijo que vendrías. Déjame explicarte cómo funcionan los Preservadores de Core.",
+    "Cuando enfrentes a un Zoid Sleeper, activa el preservador antes de que termine la batalla. Si logras debilitarlo lo suficiente, el preservador intentará extraer y preservar su Core. ¿Vas a pelear contra varios seguidos? Haz doble clic y el preservador se activará automáticamente en cada combate.",
+    "Eso sí, cada preservador debe estar estéril para no dañar el Core, así que solo se pueden usar una vez. Necesitarás uno por cada extracción. Pero por mí no hay problema... ¡mientras más compres, mejor para el negocio!",
+    "Toma, estos 5 Preservadores de Core van por cuenta de la casa. Los necesitarás para extraer los Cores de esos Sleepers de ahí afuera. ¡Buena suerte!"
   ],
   "boy": [
     "¡Por favor, tienes que ayudarme! ¡Un bandido vino y se llevó a mi hermana y a mi madre! Se fueron hacia el campamento abandonado del norte... Tengo mucho miedo por ellas.",
@@ -27,9 +27,9 @@
     "¿Así que Malinoff te envía? Vaya, vaya... Vi cómo ayudaste a la gente de esta aldea, así que por eso acepto hablar contigo. ¿Conseguir más Zoids? La forma más fácil es comprárselos al ejército, aunque solo te darán sus desechos.",
     "Yo dejé de trabajar con Zoids hace mucho, pero en mis tiempos usábamos trampas para capturar Zoids salvajes. Hoy en día es casi imposible encontrarlos, y más aún lograr que cooperen contigo. Así que los ejércitos idearon una nueva forma: aprendimos a incubar Zoid Cores.",
     "Como sabes, el Zoid Core es el núcleo vital de cada Zoid. Cada especie tiene un Core distinto, pero todos comparten un mismo origen: los metales disueltos en las aguas primigenias del planeta. Lo que logramos fue recrear las condiciones de esas aguas primitivas en un laboratorio. Si consigues suficiente Zoid Magnite, o en su defecto bastante Magnis, podemos sumergirlo en esa sustancia y crear un Zoid Core nuevo.",
-    "El siguiente paso es moldear ese Core a la especie que necesites. Para eso hacen falta datos estructurales del Zoid. Toma, esto es un Analizador de Cores. Si lo conectas a un Zoid Core activo, puedes escanear su estructura y obtener los datos que necesitamos para moldear un Core nuevo según esa especie.",
-    "Últimamente hay muchos Zoid Sleepers por esta región. Si te topas con uno, intenta no destrozarlo y analiza su Core. Eso sí, ningún Zoid te dará acceso a su Core así como así. Tendrás que inmovilizarlo primero. No te voy a mentir, inmovilizar un Zoid sin destruirlo no es tarea fácil.",
-    "Si consigues los datos de un Zoid, ven a verme y pondremos a incubar algunos Cores. Aunque con este laboratorio tan básico solo podremos crear Zoids simples, y no te garantizo mucho éxito. Solo te falta una pieza importante: para conectar el Analizador a los Cores necesitarás una Sonda. Son de un solo uso, así que tendrás que invertir en ellas. Visita el taller de la señora Becker, seguro las tiene."
+    "El siguiente paso es moldear ese Core a la especie que necesites. Para eso hacen falta datos estructurales del Zoid. Toma, esto es un Analizador de Cores. Con él, puedes analizar los datos de un Zoid Core preservado y obtener el plano que necesitamos para moldear un Core nuevo según esa especie.",
+    "Últimamente hay muchos Zoid Sleepers por esta región. Si te topas con uno, intenta debilitarlo y preservar su Core antes de que se destruya. Eso sí, ningún Zoid te dará acceso a su Core así como así. Tendrás que inmovilizarlo primero. No te voy a mentir, inmovilizar un Zoid sin destruirlo no es tarea fácil.",
+    "Si consigues los datos del core de un Zoid, ven a verme y podremos clonarlo en el laboratorio. Aunque con este laboratorio tan básico solo podremos crear Zoids simples, y no te garantizo mucho éxito. Solo te falta una pieza importante: para extraer y preservar los Cores necesitarás un Preservador de Core. Son de un solo uso, así que tendrás que invertir en ellos. Visita el taller de la señora Becker, seguro los tiene."
   ],
   "maria_fiona": [
     "¿Así que estabas preocupado por Van? Él se fue temprano con esa chica y ese dinosaurio que encontraron. Creo que le está enseñando la ciudad. Ese chico... siempre metiéndose en estas situaciones.",
@@ -59,7 +59,7 @@
   ],
   "explorer_dungeon_tips": [
     "¿Vas a entrar a las ruinas? Yo ya he bajado un par de veces. Déjame contarte qué esperar.",
-    "Si logras inmovilizar a un Zoid para escanear su Zi-Data, aprovecha para recoger un poco de Metal Zi. Lo vas a necesitar para preparar a tus Zoids para las incursiones en las ruinas.",
+    "Si logras debilitar a un Zoid lo suficiente como para preservar su Core, aprovecha para recoger un poco de Metal Zi. Lo vas a necesitar para preparar a tus Zoids para las incursiones en las ruinas.",
     "Una vez adentro, te toparás con Sleepers hostiles cerca de la entrada. Pero conforme vayas avanzando se volverán más peligrosos. Algunos son mucho más peligrosos que el resto, pero generalmente custodian tesoros más valiosos.",
     "Las ruinas están llenas de sorpresas. Cosas extrañas pasan ahí abajo... tendrás que tomar decisiones que podrían ayudarte o empeorarte las cosas. Y si tienes suerte, podrías encontrar algunos suministros en el camino.",
     "Sea lo que sea que busques, no entres a menos que estés listo para una pelea de verdad."
