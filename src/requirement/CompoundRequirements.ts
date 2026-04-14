@@ -6,7 +6,7 @@ import { NpcTalkedInCampaignRequirement } from './NpcTalkedInCampaignRequirement
 
 export const COMPOUND_REQUIREMENTS = {
   becker_probes: new AtLeastOneRequirement([
-    new ItemRequirement(ITEMS.core_probe.id),
+    new ItemRequirement(ITEMS.core_preserver.id),
     new MissionCompletedRequirement('sleeper_commander', 'obtain_zi_data'),
     new NpcTalkedInCampaignRequirement('sleeper_commander', 'becker'),
   ]),

@@ -7,6 +7,10 @@
     "description": "A device that can be used to obtain structural data from Zoid Cores.",
     "name": "Core Analyzer"
   },
+  "core_preserver": {
+    "description": "A device to preserve the Core of a weakened Zoid in order to extract structural data.",
+    "name": "Core Preserver"
+  },
   "core_probe": {
     "description": "A probe to connect to the Zoid Core. Can obtain structural data.",
     "name": "Core Probe"

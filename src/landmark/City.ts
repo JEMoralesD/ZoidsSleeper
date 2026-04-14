@@ -32,9 +32,9 @@ export const CITIES: City[] = [
   },
   {
     actions: [
-      new ActionVisitDepot([ITEMS.core_probe as ConsumableItem], [new ItemRequirement(ITEMS.core_analyzer.id)]),
+      new ActionVisitDepot([ITEMS.core_preserver as ConsumableItem], [new ItemRequirement(ITEMS.core_analyzer.id)]),
       new ActionVisitLab('jenkins_lab', [new MissionCompletedRequirement('sleeper_commander', 'jenkins_to_work')]),
-      new ActionTalkToNPC('becker', [new MissionCompletedRequirement('sleeper_commander', 'talk_to_jenkins')], [COMPOUND_REQUIREMENTS.becker_probes], itemReward(ITEMS.core_probe.id, 5, false)),
+      new ActionTalkToNPC('becker', [new MissionCompletedRequirement('sleeper_commander', 'talk_to_jenkins')], [COMPOUND_REQUIREMENTS.becker_probes], itemReward(ITEMS.core_preserver.id, 5, false)),
       new ActionTalkToNPC('becker', [COMPOUND_REQUIREMENTS.becker_probes]),
       new ActionTalkToNPC('boy', undefined, [new MissionCompletedRequirement('sleeper_commander', 'talk_to_hostage')]),
       new ActionTalkToNPC('captain_malinoff', [new ItemRequirement(ITEMS.sleeper_module.id)], [new MissionCompletedRequirement('sleeper_commander', 'talk_to_jenkins')]),

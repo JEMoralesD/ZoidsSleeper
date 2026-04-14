@@ -7,6 +7,10 @@
     "description": "Un dispositivo usado para obtener información estructural de los Zoid Cores",
     "name": "Analizador de Cores"
   },
+  "core_preserver": {
+    "description": "Un dispositivo para preservar el Core de un Zoid debilitado y poder extraer datos estructurales.",
+    "name": "Preservador de Core"
+  },
   "core_probe": {
     "description": "Una sonda para conectarse al Zoid Core. Puede obtener datos estructurales.",
     "name": "Sonda de Core"
