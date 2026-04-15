@@ -3,7 +3,7 @@ import { grantCurrencyReward } from '../store/walletStore';
 import type { PlayerStats } from '../models/Player';
 import { spawnZoid, buildZoid, type ZoidBlueprint, ZoidResearchStatus } from '../models/Zoid';
 
-import { rewardEvents, setEnemyZoid, setPilotPlayerHealth, setPilotPlayerMaxHealth, setRewardEvents } from '../store/gameStore';
+import { emitRewardEvent, setEnemyZoid, setPilotPlayerHealth, setPilotPlayerMaxHealth } from '../store/gameStore';
 import { resetScanAfterBattle } from '../store/scanStore';
 import { updateZoidResearch } from '../store/zoidResearchStore';
 import type { DungeonSortieEvent } from './DungeonSortieEvent';
@@ -13,7 +13,6 @@ import { SortieNodeType, type SortieNodeType as SortieNodeTypeValue } from './Du
 export class DungeonBattle extends BaseBattle {
   currentEnemyIndex = -1;
   enemies: ZoidBlueprint[];
-  rewardIdCounter = 0;
   onDefeat: (() => void) | null = null;
   onNodeComplete: (() => void) | null = null;
 
@@ -50,9 +49,8 @@ export class DungeonBattle extends BaseBattle {
     const rewardMultiplier = this.nodeType === SortieNodeType.Elite ? 3 : 1;
     const scanned = this.nodeType !== SortieNodeType.Boss && this.tryScan();
     const reward = grantCurrencyReward(this.config.baseReward, rewardMultiplier, scanned);
-    const events = [...rewardEvents().slice(-4), { amount: reward.magnis, currency: 'magnis', id: this.rewardIdCounter++ }];
-    if (reward.ziMetal > 0) {events.push({ amount: reward.ziMetal, currency: 'zi_metal', id: this.rewardIdCounter++ });}
-    setRewardEvents(events);
+    emitRewardEvent(reward.magnis, 'magnis');
+    emitRewardEvent(reward.ziMetal, 'zi_metal');
     resetScanAfterBattle();
     if (this.currentEnemyIndex < this.enemies.length - 1) {
       this.nextEnemy();

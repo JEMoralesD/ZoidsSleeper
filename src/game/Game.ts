@@ -44,7 +44,9 @@ import {
   setActiveDialog,
   setActiveLab,
   setActiveShop,
+  emitRewardEvent,
   setPopupMessage,
+  setRewardEvents,
 } from '../store/gameStore';
 import { setCurrentLandmark } from '../store/landmarkStore';
 import { addZoidToArmy, partyMaxHealth, setParty } from '../store/partyStore';
@@ -143,6 +145,7 @@ export class Game {
     this.battle = null;
     setBattleState(BattleState.Idle);
     setEnemyZoid(null);
+    setRewardEvents([]);
   }
 
   enterPilotBattle(pilot: Pilot, unwinnable = false): void {
@@ -266,6 +269,8 @@ export class Game {
       run.playerMaxHealth
     );
     battle.onVictory = () => {
+      addCurrency(Currency.Magnis, boss.magnisReward);
+      emitRewardEvent(boss.magnisReward, 'magnis');
       incrementPilotDefeats(boss.id);
       this.completeDungeonNode();
     };

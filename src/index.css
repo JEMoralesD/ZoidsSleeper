@@ -202,6 +202,29 @@ body {
   color: #ffd700;
   font-size: 0.75rem;
   font-weight: bold;
+  position: relative;
+}
+
+.wallet-reward {
+  animation: wallet-float-up 1s ease-out both;
+  color: #4cff4c;
+  font-size: 0.65rem;
+  left: 0;
+  position: absolute;
+  top: -0.2rem;
+  white-space: nowrap;
+}
+
+@keyframes wallet-float-up {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
 }
 
 @keyframes pulse {
