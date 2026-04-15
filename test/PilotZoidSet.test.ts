@@ -44,6 +44,6 @@ describe('getActiveZoids', () => {
 
     const zoids = getActiveZoids(PILOTS['rosso']);
 
-    expect(zoids[0].maxHealthOverride).toBe(1800);
+    expect(zoids[0].maxHealthOverride).toBe(2500);
   });
 });

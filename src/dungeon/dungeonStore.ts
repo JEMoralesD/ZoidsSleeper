@@ -1,6 +1,6 @@
 import { createMemo, createSignal } from 'solid-js';
 import type { Pilot } from '../models/Pilot';
-import { setPlayerStats } from '../store/gameStore';
+import { emitRewardEvent, setPlayerStats } from '../store/gameStore';
 import { Currency } from '../models/Currency';
 import { addCurrency } from '../store/walletStore';
 import type { DungeonSortieEvent } from './DungeonSortieEvent';
@@ -66,6 +66,7 @@ function applyEventOutcome(choice: DungeonEventChoice): void {
       break;
     case EventOutcomeType.Reward:
       addCurrency(Currency.Magnis, outcome.value);
+      emitRewardEvent(outcome.value, 'magnis');
       break;
   }
 }

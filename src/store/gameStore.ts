@@ -82,6 +82,13 @@ function incrementClickAttack(amount = 1): void {
   setPlayerStats((prev) => prev ? { ...prev, clickAttack: prev.clickAttack + amount } : prev);
 }
 
+let rewardIdCounter = 0;
+
+function emitRewardEvent(amount: number, currency: string): void {
+  if (amount <= 0) {return;}
+  setRewardEvents((prev) => [...prev.slice(-4), { amount, currency, id: rewardIdCounter++ }]);
+}
+
 const enemyHealthPercent = createMemo(() => {
   const enemy = enemyZoid();
   return enemy ? Math.floor((enemy.health / enemy.maxHealth) * 100) : 0;
@@ -99,6 +106,7 @@ export {
   battleState,
   damageEvents,
   dequeueDialog,
+  emitRewardEvent,
   enqueueDialog,
   enemyHealthPercent,
   enemyZoid,

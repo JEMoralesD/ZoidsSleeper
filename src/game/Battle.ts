@@ -4,7 +4,7 @@ import { grantCurrencyReward } from '../store/walletStore';
 import type { PlayerStats } from '../models/Player';
 import { spawnZoid } from '../models/Zoid';
 import { checkCampaigns } from '../store/campaignStore';
-import { rewardEvents, setEnemyZoid, setRewardEvents } from '../store/gameStore';
+import { emitRewardEvent, setEnemyZoid } from '../store/gameStore';
 import { incrementRouteKills } from '../store/statisticsStore';
 
 import { ZoidResearchStatus } from '../models/Zoid';
@@ -14,7 +14,6 @@ import { resetScanAfterBattle } from '../store/scanStore';
 import { BaseBattle } from './BaseBattle';
 
 export class Battle extends BaseBattle {
-  rewardIdCounter = 0;
   route: Route;
 
   constructor(playerStats: PlayerStats, route: Route) {
@@ -39,9 +38,8 @@ export class Battle extends BaseBattle {
   protected onEnemyDefeated(): void {
     const scanned = this.tryScan();
     const reward = grantCurrencyReward(this.route.baseReward, 1, scanned);
-    const events = [...rewardEvents().slice(-4), { amount: reward.magnis, currency: 'magnis', id: this.rewardIdCounter++ }];
-    if (reward.ziMetal > 0) {events.push({ amount: reward.ziMetal, currency: 'zi_metal', id: this.rewardIdCounter++ });}
-    setRewardEvents(events);
+    emitRewardEvent(reward.magnis, 'magnis');
+    emitRewardEvent(reward.ziMetal, 'zi_metal');
     incrementRouteKills(this.route.id);
     resetScanAfterBattle();
     checkCampaigns();

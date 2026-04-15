@@ -81,7 +81,7 @@ export const ROUTES: Route[] = [
   {
     baseReward: { magnis: 120, zi_metal: 20 },
     battleBackground: BattleBackground.Desert,
-    connects: ['wind_oasis', 'arcobaleno_camp'],
+    connects: ['wind_colony', 'arcobaleno_camp'],
     enemies: [
       { id: 'gorgodos', level: 22 },
       { id: 'molga', level: 20 },
