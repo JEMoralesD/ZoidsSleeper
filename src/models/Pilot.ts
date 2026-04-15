@@ -109,6 +109,7 @@ export const PILOTS: Record<string, Pilot> = {
   },
   van_shield_liger: {
     id: 'van_shield_liger',
+    imageId: 'van',
     magnisReward: 10000,
     name: 'Van',
     zoidSets: [
@@ -143,9 +144,9 @@ export const PILOTS: Record<string, Pilot> = {
     name: 'Viola, Verde & Giallo',
     zoidSets: [
       new PilotZoidSet([
-        { attackOverride: 8, id: 'molga', level: 20, maxHealthOverride: 2000 },
-        { attackOverride: 9, id: 'molga', level: 22, maxHealthOverride: 2000 },
-        { attackOverride: 14, id: 'redler', level: 25, maxHealthOverride: 2500, imageOverride: 'redler_vs' },
+        { attackOverride: 8, id: 'molga', level: 20, maxHealthOverride: 1000 },
+        { attackOverride: 9, id: 'molga', level: 22, maxHealthOverride: 1000 },
+        { attackOverride: 14, id: 'redler', level: 25, maxHealthOverride: 1200, imageOverride: 'redler_vs' },
       ]),
     ],
   },
