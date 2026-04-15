@@ -53,6 +53,7 @@
 }
 
 .battle-area {
+  -webkit-tap-highlight-color: transparent;
   align-items: center;
   border: 2px dashed #0f3460;
   border-radius: 8px;
@@ -83,7 +84,7 @@
 }
 
 .battle-area:active {
-  background-color: rgb(0 212 255 / 5%);
+  border-color: #00d4ff;
 }
 
 .scan-rate {
