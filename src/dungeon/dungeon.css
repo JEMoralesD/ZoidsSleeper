@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  height: 51vh;
   padding: 0.8rem;
   width: 100%;
 }
@@ -25,6 +26,8 @@
 
 .dungeon-graph-container {
   border-radius: 8px;
+  flex: 1;
+  min-height: 0;
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -67,6 +70,7 @@
 .dungeon-layers {
   display: flex;
   flex-direction: row;
+  height: 100%;
   justify-content: space-around;
   padding: 1rem 0.5rem;
   width: 100%;
@@ -78,6 +82,7 @@
   flex: 1;
   flex-direction: column;
   gap: 0.8rem;
+  justify-content: center;
 }
 
 /* Node styles */
@@ -271,8 +276,8 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  height: 51vh;
   justify-content: center;
-  min-height: 200px;
   padding: 1.5rem;
   width: 100%;
 }
@@ -343,8 +348,8 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  height: 51vh;
   justify-content: center;
-  min-height: 200px;
   padding: 1.5rem;
   width: 100%;
 }
@@ -483,5 +488,29 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (width <= 768px) {
+  .dungeon-event-screen,
+  .dungeon-map-screen,
+  .dungeon-supply-screen {
+    height: 40vh;
+  }
+}
+
+@media (width <= 768px) and (orientation: landscape) {
+  .dungeon-event-screen,
+  .dungeon-map-screen,
+  .dungeon-supply-screen {
+    height: 35vh;
+  }
+}
+
+@media (width <= 480px) {
+  .dungeon-event-screen,
+  .dungeon-map-screen,
+  .dungeon-supply-screen {
+    height: 35vh;
   }
 }
