@@ -7,6 +7,26 @@
   padding: 0.5rem;
 }
 
+.map-svg-container {
+  position: relative;
+}
+
+.map-hover-label {
+  background: rgb(0 0 0 / 70%);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: bold;
+  left: 50%;
+  padding: 0.2rem 0.6rem;
+  pointer-events: none;
+  position: absolute;
+  top: 0.4rem;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  z-index: 1;
+}
+
 .world-map-title {
   color: #00d4ff;
   cursor: pointer;
@@ -69,9 +89,12 @@
 }
 
 .map-node-label {
-  fill: #000;
+  fill: #fff;
   font-weight: bold;
+  paint-order: stroke;
   pointer-events: none;
+  stroke: #000;
+  stroke-width: 3px;
   text-anchor: middle;
 }
 
@@ -102,6 +125,16 @@
   filter: drop-shadow(0 0 4px #00d4ff);
   image-rendering: pixelated;
   pointer-events: none;
+}
+
+@media (hover: none) {
+  .map-node:hover {
+    filter: none;
+  }
+
+  .map-route:hover {
+    filter: none;
+  }
 }
 
 @keyframes map-pulse {
