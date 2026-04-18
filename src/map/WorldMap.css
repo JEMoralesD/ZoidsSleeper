@@ -69,9 +69,12 @@
 }
 
 .map-node-label {
-  fill: #000;
+  fill: #fff;
   font-weight: bold;
+  paint-order: stroke;
   pointer-events: none;
+  stroke: #000;
+  stroke-width: 3px;
   text-anchor: middle;
 }
 
@@ -102,6 +105,16 @@
   filter: drop-shadow(0 0 4px #00d4ff);
   image-rendering: pixelated;
   pointer-events: none;
+}
+
+@media (hover: none) {
+  .map-node:hover {
+    filter: none;
+  }
+
+  .map-route:hover {
+    filter: none;
+  }
 }
 
 @keyframes map-pulse {

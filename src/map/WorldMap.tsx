@@ -51,11 +51,14 @@ const WorldMap: Component<WorldMapProps> = (props) => {
           />
           {(() => {
             const scale = currentRegion().viewBox.w / currentRegion().imageSize.w;
-            const cityRadius = 15 * scale;
+            const cityRadius = 20 * scale;
             const fontSize = 28 * scale;
+            const minHitSize = 24;
+            const routeHitWidth = Math.max(15 * scale, minHitSize);
             const routeStrokeWidth = 15 * scale;
             const spriteSize = currentRegion().viewBox.w * 0.06;
             const strokeWidth = 3 * scale;
+            const cityHitRadius = Math.max(cityRadius, minHitSize / 2);
 
             const playerPos = () => {
               const landmark = currentLandmark();
@@ -87,6 +90,24 @@ const WorldMap: Component<WorldMapProps> = (props) => {
                           y1={from().y}
                           x2={to().x}
                           y2={to().y}
+                          stroke="transparent"
+                          stroke-width={routeHitWidth}
+                          stroke-linecap="round"
+                        />
+                        <line
+                          x1={from().x}
+                          y1={from().y}
+                          x2={to().x}
+                          y2={to().y}
+                          stroke="#000"
+                          stroke-width={routeStrokeWidth * 2}
+                          stroke-linecap="round"
+                        />
+                        <line
+                          x1={from().x}
+                          y1={from().y}
+                          x2={to().x}
+                          y2={to().y}
                           stroke={locked() ? '#444' : isCurrent() ? '#00d4ff' : '#ffc107'}
                           stroke-width={routeStrokeWidth}
                           stroke-linecap="round"
@@ -107,6 +128,7 @@ const WorldMap: Component<WorldMapProps> = (props) => {
                         class={`map-node ${isCurrent() ? 'map-node--current' : ''} ${locked() ? 'map-node--locked' : ''}`}
                         onClick={() => handleLandmarkClick(city)}
                       >
+                        <circle cx={cx()} cy={cy()} r={cityHitRadius} fill="transparent" />
                         <circle
                           cx={cx()}
                           cy={cy()}
@@ -139,6 +161,7 @@ const WorldMap: Component<WorldMapProps> = (props) => {
                         class={`map-node ${isCurrent() ? 'map-node--current' : ''} ${locked() ? 'map-node--locked' : ''}`}
                         onClick={() => handleLandmarkClick(dungeon)}
                       >
+                        <circle cx={cx()} cy={cy()} r={cityHitRadius} fill="transparent" />
                         <polygon
                           points={`${cx()},${cy() - cityRadius} ${cx() - cityRadius},${cy() + cityRadius} ${cx() + cityRadius},${cy() + cityRadius}`}
                           fill={locked() ? '#444' : isCurrent() ? '#3b82f6' : '#f97316'}
