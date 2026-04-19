@@ -60,7 +60,7 @@ const WorldMap: Component<WorldMapProps> = (props) => {
               const routeHitWidth = Math.max(15 * scale, minHitSize);
               const routeStrokeWidth = 15 * scale;
               const spriteSize = currentRegion().viewBox.w * 0.06;
-              const strokeWidth = 3 * scale;
+              const cityIconSize = cityRadius * 3;
               const cityHitRadius = Math.max(cityRadius, minHitSize / 4);
 
               const playerPos = () => {
@@ -136,13 +136,13 @@ const WorldMap: Component<WorldMapProps> = (props) => {
                           onMouseLeave={() => setHoveredLandmark(null)}
                         >
                           <circle cx={cx()} cy={cy()} r={cityHitRadius} fill="transparent" />
-                          <circle
-                            cx={cx()}
-                            cy={cy()}
-                            r={cityRadius}
-                            fill={locked() ? '#444' : isCurrent() ? '#3b82f6' : '#f97316'}
-                            stroke={locked() ? '#666' : isCurrent() ? '#fff' : '#fff'}
-                            stroke-width={strokeWidth}
+                          <image
+                            class="map-city-icon"
+                            href="images/map/city.png"
+                            x={cx() - cityIconSize / 2}
+                            y={cy() - cityIconSize / 2}
+                            width={cityIconSize}
+                            height={cityIconSize}
                           />
                           <text
                             class="map-node-label"
@@ -173,12 +173,13 @@ const WorldMap: Component<WorldMapProps> = (props) => {
                           onMouseLeave={() => setHoveredLandmark(null)}
                         >
                           <circle cx={cx()} cy={cy()} r={cityHitRadius} fill="transparent" />
-                          <polygon
-                            points={`${cx()},${cy() - cityRadius} ${cx() - cityRadius},${cy() + cityRadius} ${cx() + cityRadius},${cy() + cityRadius}`}
-                            fill={locked() ? '#444' : isCurrent() ? '#3b82f6' : '#f97316'}
-                            stroke={locked() ? '#666' : isCurrent() ? '#fff' : '#fff'}
-                            stroke-width={strokeWidth}
-                            stroke-linejoin="round"
+                          <image
+                            class="map-city-icon"
+                            href="images/map/dungeon.png"
+                            x={cx() - cityIconSize / 2}
+                            y={cy() - cityIconSize / 2}
+                            width={cityIconSize}
+                            height={cityIconSize}
                           />
                           <text
                             class="map-node-label"
